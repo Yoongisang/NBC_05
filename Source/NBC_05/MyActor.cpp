@@ -1,7 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "MyActor.h"
+#include "Engine/Engine.h"
 
 // Sets default values
 AMyActor::AMyActor()
@@ -15,7 +16,10 @@ AMyActor::AMyActor()
 void AMyActor::BeginPlay()
 {
 	Super::BeginPlay();
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Hello"));
 	
+	RandMove();
+	RandRotate();
 }
 
 // Called every frame
@@ -23,5 +27,24 @@ void AMyActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void AMyActor::RandMove()
+{
+	FVector RandomLocation;
+	RandomLocation.X = FMath::RandRange(-100.f, 100.f);
+	RandomLocation.Y = FMath::RandRange(-100.f, 100.f);
+
+	SetActorLocation(GetActorLocation() + RandomLocation);
+}
+
+
+void AMyActor::RandRotate()
+{
+	FRotator RandomRotation;
+	RandomRotation.Yaw = FMath::RandRange(0.f, 360.f);
+	RandomRotation.Pitch = FMath::RandRange(0.f, 360.f);
+
+	SetActorRotation(GetActorRotation() + RandomRotation);
 }
 

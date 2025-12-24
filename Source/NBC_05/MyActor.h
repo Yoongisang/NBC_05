@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -14,7 +14,6 @@ class NBC_05_API AMyActor : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AMyActor();
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -22,5 +21,13 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	UFUNCTION()
+	void RandMove();
+	void RandRotate();
+private:
+	UPROPERTY()
+	// 엑터의 회전
+	FRotator ActorRotation;
+	// 엑터의 위치
+	FVector ActorLocation;
 };
