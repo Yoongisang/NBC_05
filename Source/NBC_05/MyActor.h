@@ -23,11 +23,16 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	UFUNCTION()
 	void RandMove();
+	UFUNCTION()
 	void RandRotate();
+	UFUNCTION()
+	int TriggerEventWithProbability(float Probability);
 private:
 	UPROPERTY()
 	// 엑터의 회전
 	FRotator ActorRotation;
+	UPROPERTY()
 	// 엑터의 위치
 	FVector ActorLocation;
+
 };
