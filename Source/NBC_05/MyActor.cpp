@@ -77,7 +77,7 @@ void AMyActor::RandMove()
 	FVector RandomLocation;
 	RandomLocation.X = FMath::RandRange(-100.f, 100.f);
 	RandomLocation.Y = FMath::RandRange(-100.f, 100.f);
-
+	
 	SetActorLocation(GetActorLocation() + RandomLocation);
 }
 
